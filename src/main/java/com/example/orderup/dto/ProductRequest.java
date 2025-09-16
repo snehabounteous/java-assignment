@@ -2,11 +2,13 @@ package com.example.orderup.dto;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 @Getter
 @Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductRequest {
 
     @NotBlank(message = "Product name is required")
