@@ -99,6 +99,30 @@ Errors handled centrally and return structured JSON, e.g.:
   "timestamp": 1694947200000
 }
 
+## 📚 API Endpoints
+
+### Orders
+
+| HTTP Method | Endpoint          | Description            | Request Body Example                  | Response Example                                              |
+|-------------|-------------------|------------------------|-------------------------------------|--------------------------------------------------------------|
+| POST        | `/api/orders`     | Place a new order      | `{ "productId": 1, "quantity": 2 }` | `{ "orderId": 101, "productId": 1, "quantity": 2, "status": "CONFIRMED" }` |
+| GET         | `/api/orders/{id}` | Get order details by ID | N/A                                 | `{ "orderId": 101, "productId": 1, "quantity": 2, "status": "CONFIRMED" }` |
+| GET         | `/api/orders`     | List all orders        | N/A                                 | List of order objects                                        |
+
+---
+
+### Products
+
+| HTTP Method | Endpoint               | Description                | Request Body Example                     | Response Example                                                         |
+|-------------|------------------------|----------------------------|----------------------------------------|-------------------------------------------------------------------------|
+| POST        | `/api/products`        | Create a new product       | `{ "name": "New Product", "stock": 15 }` | `{ "id": 5, "name": "New Product", "stock": 15, "message": "Product created successfully" }` |
+| GET         | `/api/products/{id}`   | Retrieve product by ID     | N/A                                    | `{ "id": 1, "name": "Test Product", "stock": 10, "message": "Product retrieved successfully" }` |
+| GET         | `/api/products`        | Retrieve all products      | N/A                                    | List of product objects                                                 |
+| PUT         | `/api/products/{id}`   | Update existing product    | `{ "name": "Updated Name", "stock": 20 }` | `{ "id": 5, "name": "Updated Name", "stock": 20, "message": "Product updated successfully" }` |
+| DELETE      | `/api/products/{id}`   | Delete a product           | N/A                                    | HTTP 204 No Content                                                     |
+| GET         | `/api/products/{id}/stock` | Get current stock of product | N/A                                  | `10` (integer representing current stock)                             |
+
+
 🧪 Testing
 ✅ Unit Tests
 
